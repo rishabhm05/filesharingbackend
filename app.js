@@ -11,7 +11,6 @@ const port =process.env.PORT|| 3009;
 console.log(process.env.PORT)
 const server = createServer(app);
 let usersroom={};
-let fileStreams={};
 const io = new Server(server,{
     cors:{
         origin:["http://localhost:3000/","https://filesharing-vert.vercel.app/"],
@@ -23,7 +22,7 @@ const io = new Server(server,{
 });
 app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: ["http://localhost:3000/","https://filesharing-vert.vercel.app/"],
       methods: ["GET", "POST"],
       credentials: true,
     })
